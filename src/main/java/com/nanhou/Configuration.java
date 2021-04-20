@@ -6,6 +6,7 @@ import graphql.schema.GraphQLSchema;
 import io.leangen.graphql.GraphQLSchemaGenerator;
 import io.micronaut.context.annotation.Bean;
 import io.micronaut.context.annotation.Factory;
+import org.graalvm.polyglot.Context;
 
 import javax.inject.Singleton;
 
@@ -20,5 +21,13 @@ public class Configuration {
                 .withOperationsFromSingleton(noteGQLService) //register the service
                 .generate();
         return GraphQL.newGraphQL(schema).build();
+    }
+
+    @Bean
+    public Context graalContext() {
+        return Context.newBuilder()
+                .allowAllAccess(true)
+                .allowCreateThread(true)
+                .build();
     }
 }

@@ -27,6 +27,10 @@ dependencies {
     implementation("io.micronaut.graphql:micronaut-graphql")
     runtimeOnly("ch.qos.logback:logback-classic")
     implementation('io.leangen.graphql:spqr:0.11.2')
+    // https://mvnrepository.com/artifact/org.graalvm.sdk/graal-sdk
+    implementation("org.graalvm.sdk:graal-sdk:21.0.0.2")
+    implementation('org.graalvm.truffle:truffle-api:21.0.0.2')
+    implementation('org.graalvm.js:js:21.0.0.2')
 
 }
 
